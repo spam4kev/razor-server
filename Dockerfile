@@ -1,3 +1,8 @@
+# This file is used in conjnction with docker-compose command to
+#  build the razorserver_razorserver razorserver_razordb images in dockerhub
+#  so that the 'docker-compose up' command can pull them down and run setup
+#  script to get razor running locally in two containers.
+#
 #From centos/postgresql-94-centos7
 #VOLUME /var/lib/pgsql/data
 #ENV POSTGRESQL_USER razor
