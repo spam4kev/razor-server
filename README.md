@@ -5,6 +5,8 @@ sudo sh -c " curl -L https://github.com/docker/compose/releases/download/1.5.2/d
 sudo chmod +x /usr/local/bin/docker-compose
 mkdir -p /data/razor-repo-store /data/pgsql
 chmod 777 /data/pgsql
+chmod 775 /data/razor-repo-store/
+chown root /data/razor-repo-store/
 ```
 
 
