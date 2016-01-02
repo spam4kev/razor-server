@@ -7,7 +7,7 @@ ENV POSTGRESQL_DATABASE razor_prd
 From centos:latest
 MAINTAINER "kev" spam4kev@gmail.com
 COPY ./razor-server.sh /tmp/razor-server.sh
-ADD http://links.puppetlabs.com/razor-microkernel-latest.tar /tmp
+#ADD http://links.puppetlabs.com/razor-microkernel-latest.tar /tmp
 #Install deps
 RUN yum update -y && \
     yum install -y \
