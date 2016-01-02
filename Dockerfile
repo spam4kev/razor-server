@@ -9,7 +9,7 @@ RUN yum update -y && \
 WORKDIR /var/lib/razor/repo-store
 RUN yum install -y razor-server 
 RUN sed -i 's/razor_prd/\/\/razor_db\/razor_prd/' /etc/razor/config.yaml && \
-    wget http://links.puppetlabs.com/razor-microkernel-latest.tar && \
+    $( [[ ! -f ./razor-microkernel-latest.tar ]] && wget http://links.puppetlabs.com/razor-microkernel-latest.tar ) && \
     tar -xf razor-microkernel-latest.tar && \
     razor-admin -e production migrate-database && \
     /etc/init.d/razor-server start
