@@ -37,3 +37,15 @@ docker exec -i -t razor_db bash
 docker logs razor_db
 psql -h razor_db -p 5432 -d razor_prd -U razor
 ```
+
+
+-  The below manual build steps have proven to work if all else fails
+
+```bash
+
+sed -i 's/razor_prd/\/\/razorserver_razordb_1\/razor_prd/' /etc/razor/config.yaml
+curl -SL http://links.puppetlabs.com/razor-microkernel-latest.tar      | tar -xC /var/lib/razor/repo-store/
+razor-admin -e production migrate-database
+/etc/razor/razor-server.sh start
+# CTRL-P + CTRL-Q to disconnect
+```  
