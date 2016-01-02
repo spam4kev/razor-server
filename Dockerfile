@@ -14,5 +14,6 @@ RUN yum update -y && \
 	http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm \
         wget
 RUN yum install -y razor-server && \
-    chmod +x /tmp/razor-entrypoint.sh /tmp/razor-server.sh
+    chmod +x /tmp/razor-entrypoint.sh && \
+    chmod +x /tmp/razor-server.sh
 #the rest of the rasor server prep is performed via entrypoint script "razor-entrypoint.sh" in this git repo
