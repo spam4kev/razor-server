@@ -6,7 +6,7 @@ razorserver:
   links:
     - razordb
 razordb:
-  image: centos/postrgesql-94-centos7
+  image: centos/postgresql-94-centos7
   volumes: 
     - /data/razor/pgsql:/var/lib/pgsql/data
   environment:
