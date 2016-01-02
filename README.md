@@ -1,4 +1,6 @@
 This repo builds a couple docker containers used for kickstarting my openstack server using puppet's razor app.
+It expects your host already has a large storage space mounted at /data to be shared into the two containers.
+
 - Run the below commands to prep your workstation to spin up the razor server container & backend database container
 ```bash
 sudo sh -c " curl -L https://github.com/docker/compose/releases/download/1.5.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose"
@@ -7,6 +9,9 @@ mkdir -p /data/razor /data/razor/pgsql
 chmod 777 /data/razor/pgsql
 chmod 775 /data/razor
 chown root /data/razor
+git clone https://github.com/spam4kev/razor-server.git
+cd ~
+docker-compose up
 ```
 
 # Some troubleshooting steps
