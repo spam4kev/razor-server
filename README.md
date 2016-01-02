@@ -12,6 +12,10 @@ chown root /data/razor
 git clone https://github.com/spam4kev/razor-server.git
 cd ~
 docker-compose up
+#cleanup
+docker-compose rm
+docker rmi razorserver_razorserver
+sudo rm -rf /data/razor/pgsql/userdata/ /data/razor/repo-store/*
 ```
 -  UPDATE: compose feature is broke currently. do this until it is fixed.
 ```bash
