@@ -6,5 +6,5 @@ RUN yum update -y && \
     yum install -y \
 	http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
 RUN yum install -y razor-server 
-CMD \
-    echo Setting up iptables...
+RUN razor-admin -e production migrate-database && \
+    sed -i 's/razor_prd/\/\/razor_db\/razor_prd/' /etc/razor/config.yaml
