@@ -1,15 +1,13 @@
-server:
+razorserver:
   build: .
 #  command:
   links:
     - db
-db:
+razordb:
   image: centos/postgresql-94-centos7
   command:
   volumes: 
     - /data/pgsql:/var/lib/pgsql/data
-  ports:
-    - "5432:5432"
   environment:
     POSTGRESQL_USER: razor
     POSTGRESQL_PASSWORD: mypass
