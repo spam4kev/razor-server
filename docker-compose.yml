@@ -1,11 +1,8 @@
-
 razorserver:
   build: .
   volumes: 
     - /data/razor:/var/lib/razor
   links:
-    - razordb
-  depends_on:
     - razordb
 razordb:
   image: centos/postgresql-94-centos7
