@@ -4,7 +4,7 @@ MAINTAINER "kev" spam4kev@gmail.com
 #Install stuff
 RUN yum update -y && \
     yum install -y \
-	http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm \
+	http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm \
         wget
 WORKDIR /var/lib/razor/repo-store
 RUN yum install -y razor-server 

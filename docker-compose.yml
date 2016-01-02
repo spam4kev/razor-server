@@ -1,13 +1,13 @@
 razorserver:
   build: .
   volumes: 
-    - /data/razor-repo-store:/var/lib/razor/repo-store
+    - /data/razor:/var/lib/razor
   links:
     - db
 razordb:
   image: centos/postgresql-94-centos7
   volumes: 
-    - /data/pgsql:/var/lib/pgsql/data
+    - /data/razor/pgsql:/var/lib/pgsql/data
   environment:
     POSTGRESQL_USER: razor
     POSTGRESQL_PASSWORD: mypass
