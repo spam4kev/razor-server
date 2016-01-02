@@ -1,3 +1,12 @@
+
+razorserver:
+  build: .
+  volumes: 
+    - /data/razor:/var/lib/razor
+  links:
+    - razordb
+  depends_on:
+    - razordb
 razordb:
   image: centos/postgresql-94-centos7
   volumes: 
@@ -6,9 +15,3 @@ razordb:
     POSTGRESQL_USER: razor
     POSTGRESQL_PASSWORD: mypass
     POSTGRESQL_DATABASE: razor_prd
-razorserver:
-  build: .
-  volumes: 
-    - /data/razor:/var/lib/razor
-  links:
-    - razordb
