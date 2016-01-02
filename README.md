@@ -17,7 +17,7 @@ docker-compose up
 ```bash
 git clone  https://github.com/spam4kev/razor-server.git
 cd razor-server
-docker build .
+docker build -t razor .
 ```
 
 # Some troubleshooting steps
