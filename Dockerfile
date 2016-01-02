@@ -1,3 +1,8 @@
+From centos/postgresql-94-centos7
+VOLUME /data/razor:/var/lib/pgsql/data
+ENV POSTGRESQL_USER razor
+ENV POSTGRESQL_PASSWORD mypass
+ENV POSTGRESQL_DATABASE razor_prd
 
 From centos:latest
 MAINTAINER "kev" spam4kev@gmail.com
