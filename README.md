@@ -3,7 +3,7 @@ It expects your host already has a large storage space mounted at /data to be sh
 
 - Run the below commands to prep your workstation to spin up the razor server container & backend database container
 ```bash
-sudo sh -c " curl -L https://github.com/docker/compose/releases/download/1.5.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose"
+sudo sh -c "curl -L https://github.com/docker/compose/releases/download/1.5.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose"
 sudo chmod +x /usr/local/bin/docker-compose
 mkdir -p /data/razor /data/razor/pgsql
 chmod 777 /data/razor/pgsql
@@ -15,9 +15,11 @@ docker-compose up
 #cleanup
 docker-compose rm
 docker rmi razorserver_razorserver
-sudo rm -rf /data/razor/pgsql/userdata/ /data/razor/repo-store/*
+sudo rm -rf /data/razor/pgsql/userdata/ /data/razor/repo-store/* /data/razor/razor-server.sh
 ```
+
 -  UPDATE: compose feature is broke currently. do this until it is fixed.
+
 ```bash
 git clone  https://github.com/spam4kev/razor-server.git
 cd razor-server
