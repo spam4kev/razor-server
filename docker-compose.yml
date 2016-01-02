@@ -1,11 +1,11 @@
 razorserver:
   build: .
-#  command:
+  volumes: 
+    - /data/razor-repo-store:/var/lib/razor/repo-store
   links:
     - db
 razordb:
   image: centos/postgresql-94-centos7
-  command:
   volumes: 
     - /data/pgsql:/var/lib/pgsql/data
   environment:
