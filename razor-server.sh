@@ -25,7 +25,7 @@
 umask 0027
 
 NAME="razor-server"
-WAIT=30 # seconds
+WAIT=90 # seconds
 
 # Load the location data from our torquebox installation
 source /etc/razor/razor-torquebox.sh
