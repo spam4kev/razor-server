@@ -3,7 +3,7 @@ razorserver:
   volumes: 
     - /data/razor:/var/lib/razor
   links:
-    - db
+    - razordb
 razordb:
   image: centos/postgresql-94-centos7
   volumes: 
