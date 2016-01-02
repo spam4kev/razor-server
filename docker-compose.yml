@@ -1,11 +1,12 @@
 razorserver:
-  image: spam4kev/razor-server 
+  build: .
+  command: /etc/razor/razor-entrypoint.sh
   volumes: 
     - /data/razor:/var/lib/razor
   links:
     - razordb
 razordb:
-  image: spam4kev/razor-db
+  image: centos/postrgesql-94-centos7
   volumes: 
     - /data/razor/pgsql:/var/lib/pgsql/data
   environment:
