@@ -1,5 +1,6 @@
 razorserver:
-  build: .
+#  image: spam4kev/razor-server         #use this line and comment out the next to cut time on deploy
+  build: .                              #use this line and commend out the previous to get the latest build
   command: /etc/razor/razor-entrypoint.sh
   volumes: 
     - /data/razor:/var/lib/razor
