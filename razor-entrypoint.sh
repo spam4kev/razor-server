@@ -1,5 +1,5 @@
 #!/bin/sh
-sed -i 's/razor_prd/\/\/razorserver_razordb_1\/razor_prd/' /etc/razor/config.yaml
+sed -i 's/\:razor_prd/\/\/razorserver_razordb_1\/razor_prd/' /etc/razor/config.yaml
 curl -SL http://links.puppetlabs.com/razor-microkernel-latest.tar | tar -xC /var/lib/razor/repo-store/ 
 razor-admin -e production migrate-database
 

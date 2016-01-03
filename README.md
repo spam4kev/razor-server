@@ -32,6 +32,10 @@ docker build -t razor .
 docker run -d --name razorserver_razordb -e POSTGRESQL_USER=razor -e POSTGRESQL_PASSWORD=mypass -e POSTGRESQL_DATABASE=razor_prd -v /data/razor/pg centos/postgresql-94-centos7
 
 docker run -v /data/razor:/var/lib/razor -t -i --link razorserver_razordb --name razorserver_razorserver_1 centos sh
+/var/log/razor-server/console.log" "/opt/razor-torquebox/jboss/bin/standalone.sh" \
+        "-Djboss.server.log.dir=/var/log/razor-server" \
+        "-b" "0.0.0.0" "-Dhttp.port=8150" \
+        "-Dhttps.port=#{RAZOR_HTTPS_PORT}"
 docker commit -m "centos + razor rpm" $(docker ps -lq) razor-test
 
 docker run -t -i --name razorserver_razorserver_1 spam4kev/razor-server sh
