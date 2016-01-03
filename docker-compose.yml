@@ -9,6 +9,7 @@ razorserver:
     - /data/razor:/var/lib/razor
   links:
     - razordb
+    - pxeserver
   ports:
     - 8150:8150
 razordb:
@@ -19,3 +20,7 @@ razordb:
     POSTGRESQL_USER: razor
     POSTGRESQL_PASSWORD: mypass
     POSTGRESQL_DATABASE: razor_prd
+pxeserver:
+  image: spam4kev/pxe
+  working_dir: /tftpboot
+  command: wget http://boot.ipxe.org/undionly.kpxe
