@@ -31,7 +31,7 @@ docker build -t razor .
 ```bash
 docker run -d --name razorserver_razordb -e POSTGRESQL_USER=razor -e POSTGRESQL_PASSWORD=mypass -e POSTGRESQL_DATABASE=razor_prd -v /data/razor/pg centos/postgresql-94-centos7
 
-docker run -v /data/razor:/var/lib/razor -t -i --link razorserver_razordb centos sh
+docker run -v /data/razor:/var/lib/razor -t -i --link razorserver_razordb --name razorserver_razorserver_1 centos sh
 docker commit -m "centos + razor rpm" $(docker ps -lq) razor-test
 
 docker run -t -i --name razorserver_razorserver_1 spam4kev/razor-server sh
