@@ -29,15 +29,15 @@ docker build -t razor .
 # Some troubleshooting steps
 
 ```bash
-docker run -d --name razor_db -e POSTGRESQL_USER=razor -e POSTGRESQL_PASSWORD=mypass -e POSTGRESQL_DATABASE=razor_prd -v /data/razor/pgsql:/var/lib/pgsql/data centos/postgresql-94-centos7
+docker run -d --name razorserver_razordb -e POSTGRESQL_USER=razor -e POSTGRESQL_PASSWORD=mypass -e POSTGRESQL_DATABASE=razor_prd -v /data/razor/pg centos/postgresql-94-centos7
 
-docker run -v /data/razor:/var/lib/razor -t -i --link razor_db centos
+docker run -v /data/razor:/var/lib/razor -t -i --link razorserver_razordb centos sh
 docker commit -m "centos + razor rpm" $(docker ps -lq) razor-test
 
-
-docker exec -i -t razor_db bash
-docker logs razor_db
-psql -h razor_db -p 5432 -d razor_prd -U razor
+docker run -t -i --name razorserver_razorserver_1 spam4kev/razor-server sh
+docker exec -i -t razorserver_razorserver_1  bash
+docker logs razorserver_razordb
+psql -h razor_db -p 5432 -d razorserver_razordb -U razor
 ```
 
 
