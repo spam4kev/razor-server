@@ -115,7 +115,7 @@ start() {
     done
 
     echo " timed out, starting in background."
-#    return 0  #KF commented out to test
+    return 0  
 }
 
 # This actually runs the software; we assume we are already running as the

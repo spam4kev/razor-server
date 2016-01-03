@@ -11,7 +11,6 @@
 
 From centos:latest
 MAINTAINER "kev" spam4kev@gmail.com
-COPY ./razor-server.sh /etc/razor/razor-server.sh
 COPY ./razor-entrypoint.sh /etc/razor/razor-entrypoint.sh
 #ADD http://links.puppetlabs.com/razor-microkernel-latest.tar /tmp
 #Install deps
@@ -24,4 +23,4 @@ RUN yum update -y && \
     gem install razor-client
 RUN yum install -y razor-server
 EXPOSE 8150
-#the rest of the rasor server prep is performed via entrypoint script "razor-entrypoint.sh" in this git repo
+#the rest of the razor server prep is performed via entrypoint script "razor-entrypoint.sh" in this git repo using docker-compose.

@@ -14,7 +14,7 @@ cd ~
 docker-compose up
 #cleanup
 docker-compose rm
-docker rmi razorserver_razorserver
+docker rmi spam4kev/razor-server
 sudo rm -rf /data/razor/pgsql/userdata/ /data/razor/repo-store/* /data/razor/razor-server.sh
 ```
 
