@@ -9,6 +9,8 @@ razorserver:
     - /data/razor:/var/lib/razor
   links:
     - razordb
+  ports:
+    - 8150:8150
 razordb:
   image: centos/postgresql-94-centos7
   volumes: 

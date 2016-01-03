@@ -18,6 +18,10 @@ COPY ./razor-entrypoint.sh /etc/razor/razor-entrypoint.sh
 RUN yum update -y && \
     yum install -y \
 	http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm \
-        wget
+        wget \
+	ruby \
+	rubygems && \
+    gem install razor-client
 RUN yum install -y razor-server
+EXPOSE 8150
 #the rest of the rasor server prep is performed via entrypoint script "razor-entrypoint.sh" in this git repo
