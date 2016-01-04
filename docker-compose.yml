@@ -22,5 +22,7 @@ razordb:
     POSTGRESQL_DATABASE: razor_prd
 pxeserver:
   image: spam4kev/pxe
+  cap_add:
+    - NET_ADMIN
   working_dir: /tftpboot
   command: wget http://boot.ipxe.org/undionly.kpxe
