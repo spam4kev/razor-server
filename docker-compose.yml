@@ -6,7 +6,7 @@ razorserver:
 #  build: .                              #use this line and commend out the previous to get the latest build
   command: /etc/razor/razor-entrypoint.sh
   volumes: 
-    - /data/razor:/var/lib/razor
+    - ~/data/razor:/var/lib/razor
   links:
     - razordb
     - pxeserver
@@ -15,7 +15,7 @@ razorserver:
 razordb:
   image: centos/postgresql-94-centos7
   volumes: 
-    - /data/razor/pgsql:/var/lib/pgsql/data
+    - ~/data/razor/pgsql:/var/lib/pgsql/data
   environment:
     POSTGRESQL_USER: razor
     POSTGRESQL_PASSWORD: mypass
@@ -25,5 +25,6 @@ pxeserver:
   cap_add:
     - NET_ADMIN
   working_dir: /tftpboot
+  command: yum install -y iproute
   command: wget http://boot.ipxe.org/undionly.kpxe
   command: /pxe-entrypoint.sh
