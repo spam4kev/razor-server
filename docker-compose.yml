@@ -28,7 +28,7 @@ pxeserver:
   links:
     - razorserver
   working_dir: /tftpboot
-  command: /tmp/pxe-entrypoint.sh
+  command: /tmp/pxe-entrypoint-razor.sh
   ports:
     - 68:68/udp
     - 69:69/udp
