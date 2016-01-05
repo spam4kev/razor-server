@@ -13,7 +13,7 @@ chmod 775 /data/razor
 chown root /data/razor
 git clone https://github.com/spam4kev/razor-server.git
 cd ~
-docker-compose --x-networking up
+docker-compose --x-networking up #--x-networking due to bug: https://github.com/docker/compose/issues/2480
 #cleanup
 docker-compose rm
 docker rmi spam4kev/razor-server spam4kev/pxe
