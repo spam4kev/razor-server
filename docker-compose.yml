@@ -22,8 +22,13 @@ razordb:
     POSTGRESQL_DATABASE: razor_prd
 pxeserver:
   image: spam4kev/pxe
-  net: "host"
+#  net: "host"
+#  add-cap: NET_ADMIN
   volumes:
     - /media/BitTorrent/operating_systems/:/tftpboot/images/
   working_dir: /tftpboot
   command: /tmp/pxe-entrypoint.sh
+  ports:
+    - 68:68/udp
+    - 69:69/udp
+    - 4011:4011/udp
