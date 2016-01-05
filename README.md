@@ -1,7 +1,9 @@
 This repo builds a couple docker containers used for kickstarting my openstack server using puppet's razor app.
 It expects your host already has a large storage space mounted at /data to be shared into the two containers. Since razor depends on a PXE/DHCP/TFTP server already running, docker-compose also expects iso's and such under a folder called /media on your host. Mine happens to be a NAS mounted to the docker engine host as set in the Dockerfile file.
 
--  Run the below commands to prep your workstation to spin up the razor server container & backend database container
+NOTE: I ran in to some trouble with the docker engine host already had dnsmasq running which had port 53 open, preventing the container from being able to bind. To resolve, I killed the dnsmasq process on the docker engine host.
+
+-  Run the below commands to prep your workstation to spin up the razor server container, backend database container, and pxe boot container.
 ```bash
 sudo mount <my NAS IP>:/media /media
 #there should be all the needed OS ISO's under /media/BitTorrent/operating_systems/\<os name (eg; centos)>
