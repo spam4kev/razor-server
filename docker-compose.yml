@@ -19,17 +19,19 @@ razordb:
     POSTGRESQL_USER: razor
     POSTGRESQL_PASSWORD: mypass
     POSTGRESQL_DATABASE: razor_prd
-pxeserver:
-  image: spam4kev/pxe
+#pxeserver:
+#  image: spam4kev/pxe
+#  volumes:
+#    - /media/BitTorrent/operating_systems/:/tftpboot/images/
+#  links:
+#    - razorserver
 #  net: "host"
-#  add-cap: NET_ADMIN
-  volumes:
-    - /media/BitTorrent/operating_systems/:/tftpboot/images/
-  links:
-    - razorserver
-  working_dir: /tftpboot
-  command: /tmp/pxe-entrypoint-razor.sh
-  ports:
-    - 68:68/udp
-    - 69:69/udp
-    - 4011:4011/udp
+#  working_dir: /tftpboot
+#  command: /tmp/pxe-entrypoint-razor.sh
+#  ports:
+#    - 68:68/udp
+#    - 69:69/udp
+#    - 4011:4011/udp
+extends:
+ file: pxe.yml
+ service: pxeserver
