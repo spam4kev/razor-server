@@ -2,8 +2,8 @@
 #  razor app across two containers locally.
 #  
 razorserver:
-  image: spam4kev/razor-server         #use this line and comment out the next to cut time on deploy
-#  build: .                              #use this line and commend out the previous to get the latest build
+#  build: .        #use this line and comment out the next to cut time on deploy
+  images: spam4kev/razor-server                              #use this line and commend out the previous to get the latest build
   command: /etc/razor/razor-entrypoint.sh
   volumes: 
     - /data/razor:/var/lib/razor
@@ -11,6 +11,8 @@ razorserver:
     - razordb
   ports:
     - 8150:8150
+  external_links:
+   - pxe_pxeserver_1
 razordb:
   image: centos/postgresql-94-centos7
   volumes: 
@@ -32,6 +34,3 @@ razordb:
 #    - 68:68/udp
 #    - 69:69/udp
 #    - 4011:4011/udp
-extends:
- file: pxe.yml
- service: pxeserver
