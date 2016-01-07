@@ -1,5 +1,5 @@
 This repo builds a couple docker containers used for kickstarting my openstack (RDO) server using puppet's razor app.
-It expects your host already has a large storage space mounted at /data to be shared into the two containers. Since razor depends on a PXE/DHCP/TFTP server already running, a second GitHub project, spam4kev/pxe, should already be running on the host before starting this projects docker compose. Notes on how to run spam4kev/pxe can be found at that projects (README.md)[http://github.com/spam4kev/pxe]
+It expects your host already has a large storage space mounted at /data to be shared into the two containers. Since razor depends on a PXE/DHCP/TFTP server already running, a second GitHub project, spam4kev/pxe, should already be running on the host before starting this projects docker compose. Notes on how to run spam4kev/pxe can be found at that projects [README.md](http://github.com/spam4kev/pxe)
 
 NOTE: I ran in to some trouble with the docker engine host already had dnsmasq running which had port 53 open, preventing the container from being able to bind. To resolve, I killed the dnsmasq process on the docker engine host.
 
