@@ -25,7 +25,7 @@ sudo rm -rf /data/razor/pgsql/userdata/ /data/razor/repo-store/* /data/razor/raz
 -  Some troubleshooting steps
 
 ```bash
-docker run -d --name razorserver_razordb -e POSTGRESQL_USER=razor -e POSTGRESQL_PASSWORD=mypass -e POSTGRESQL_DATABASE=razor_prd -v /data/razor/pg centos/postgresql-94-centos7
+docker run -d --name razorserver_razordb -e POSTGRESQL_USER=razor -e POSTGRESQL_PASSWORD=mypass -e POSTGRESQL_DATABASE=razor_prd -v /data/razor/pgsql centos/postgresql-94-centos7
 
 docker run -v /data/razor:/var/lib/razor -t -i --link razorserver_razordb --name razorserver_razorserver_1 centos sh
 /var/log/razor-server/console.log" "/opt/razor-torquebox/jboss/bin/standalone.sh" \
